@@ -14,7 +14,7 @@ Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
-BuildRequires:	gcc-g++
+BuildRequires:	gcc-c++
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel
 Prereq:		/sbin/ldconfig
