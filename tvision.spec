@@ -9,7 +9,6 @@ Group(pl):	Biblioteki
 Source:		%{name}-%{version}.tar.gz
 Patch:		%{name}-info.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Prereq:		%{_sbindir}/fix-info-dir
 
 %description
 
@@ -92,11 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-%{_sbindir}/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
 
 %postun
 /sbin/ldconfig
-%{_sbindir}/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
 
 %files
 %defattr(644,root,root,755)
