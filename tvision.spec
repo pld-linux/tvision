@@ -52,7 +52,7 @@ Biblioteki statyczne %{name}.
 CPPFLAGS="-I%{_includedir}/ncurses/"; export CPPFLAGS
 LDFLAGS="-s"; export LDFLAGS
 %configure
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
