@@ -2,7 +2,7 @@ Summary:	Unix port of Borland TurboVision library
 Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
 Version:	0.8
-Release:	1
+Release:	2
 License:	Borland, some modifications are BSD-style licensed (generally free)
 Group:		Libraries
 Group(de):	Libraries
@@ -14,6 +14,9 @@ Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+BuildRequires:	gcc-g++
+BuildRequires:	gpm-devel
+BuildRequires:	ncurses-devel
 Prereq:		/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -85,7 +88,7 @@ sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_infodir}
+install -d $RPM_BUILD_ROOT{%{_infodir},%{_examplesdir}/%{name}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -109,6 +112,8 @@ PROGS   := \$(patsubst %.cc,%,\$(SOURCES))
 all: \$(PROGS)
 EOF
 
+cp -ar demo tutorial $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+
 gzip -9nf ChangeLog README TODO Announce COPYRIGHT
 
 %clean
@@ -124,15 +129,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc demo tutorial ChangeLog.gz README.gz TODO.gz Announce.gz COPYRIGHT.gz
+%doc doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_infodir}/*
 
 %files devel
 %defattr(644,root,root,755)
+%doc doc/*
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
+%{_examplesdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
