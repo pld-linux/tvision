@@ -28,7 +28,6 @@ Requires:	%{name} = %{version}
 %description -l pl devel
 Pliki nag³ówkowe %{name}.
 
-
 %package static
 Summary:	Static %{name} libraries
 Summary(pl):	Biblioteki statyczne %{name}
@@ -50,7 +49,6 @@ Biblioteki statyczne %{name}.
 
 %build
 CPPFLAGS="-I%{_includedir}/ncurses/"; export CPPFLAGS
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -58,8 +56,8 @@ LDFLAGS="-s"; export LDFLAGS
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_infodir}
 install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/{demo,tutorial}
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 
