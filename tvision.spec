@@ -41,7 +41,7 @@ Requires:	%{name} = %{version}
 %description devel
 tvision header files.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe tvision.
 
 %package static
@@ -53,7 +53,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static tvision libraries.
 
-%description -l pl static
+%description static -l pl
 Biblioteki statyczne tvision.
 
 %prep
@@ -104,11 +104,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 /sbin/ldconfig
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1 
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
 %defattr(644,root,root,755)
