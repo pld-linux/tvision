@@ -7,7 +7,7 @@ Copyright:	Borland, some modifications are BSD-style licensed
 Group:		Libraries
 Group(pl):	Biblioteki
 Source:		%{name}-%{version}.tar.gz
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 
