@@ -60,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_infodir}
 install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/{demo,tutorial}
 make install DESTDIR=$RPM_BUILD_ROOT
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 
@@ -74,7 +75,7 @@ mv demo/demo			$RPM_BUILD_ROOT%{_libdir}/%{name}/demo
 mv tutorial/tvguid[0-9][0-9]	$RPM_BUILD_ROOT%{_libdir}/%{name}/tutorial
 
 # let's create simple Makefile ("\$" to prevent from macro expansion)
-cat >tutorial/Makefile  <<EOF 
+cat >tutorial/Makefile  <<EOF
 CPPFLAGS = -g
 LDFLAGS = -lncurses -lgpm -ltvision
 
