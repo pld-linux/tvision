@@ -11,10 +11,10 @@ Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fixes.patch
 Patch2:		%{name}-endian.h.patch
 URL:		http://www.sigala.it/sergio/tvision/
-BuildRequires:	gcc-c++
 BuildRequires:	gpm-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
-Prereq:		/sbin/ldconfig
+Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -75,7 +75,8 @@ sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_infodir},%{_examplesdir}/%{name}}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 
@@ -114,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc ChangeLog README TODO Announce COPYRIGHT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_infodir}/*
+%{_infodir}/*.info*
 
 %files devel
 %defattr(644,root,root,755)
@@ -126,4 +127,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/lib*.a
+%{_libdir}/lib*.a
