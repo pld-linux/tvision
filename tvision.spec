@@ -6,6 +6,7 @@ Release:	4
 License:	Borland, some modifications are BSD-like licensed (generally free)
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
+# Source0-md5:	7f99404877bb45b2510d43065cbefe6c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fixes.patch
 Patch2:		%{name}-endian.h.patch
