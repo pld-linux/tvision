@@ -1,0 +1,33 @@
+--- tvision-0.8/configure.in~	Sat Dec  1 00:33:04 2001
++++ tvision-0.8/configure.in	Sat Dec  1 00:33:04 2001
+@@ -13,7 +13,7 @@
+ 
+ dnl Checks for header files.
+ AC_STDC_HEADERS
+-AC_CHECK_HEADERS(ncurses.h curses.h gpm.h)
++AC_CHECK_HEADERS(endian.h ncurses.h curses.h gpm.h)
+ 
+ dnl Checks for libraries.
+ AC_CHECK_LIB(ncurses, initscr, ,
+--- tvision-0.8/lib/drawbuf.h~	Sat Dec  1 00:31:30 2001
++++ tvision-0.8/lib/drawbuf.h	Sat Dec  1 00:31:30 2001
+@@ -110,7 +110,7 @@
+     ushort data[maxViewWidth];
+ };
+ 
+-#include <myendian.h>
++#include <endian.h>
+ 
+ #if (BYTE_ORDER == LITTLE_ENDIAN)
+ 	#define loByte(w)    (((uchar *)&w)[0])
+--- vision-0.8/lib/system.h~	Sat Dec  1 12:28:13 2001
++++ vision-0.8/lib/system.h	Sat Dec  1 12:28:13 2001
+@@ -182,7 +182,7 @@
+     uchar buttons;
+ };
+ 
+-#include <myendian.h>
++#include <endian.h>
+ 
+ /**
+  * This structure stores information about a key.
