@@ -1,0 +1,31 @@
+--- tvision-0.8/lib/Makefile.am~	Fri Nov 30 23:09:26 2001
++++ tvision-0.8/lib/Makefile.am	Fri Nov 30 23:09:26 2001
+@@ -18,7 +18,6 @@
+ stddlg.h system.h textview.h tkeys.h tobjstrm.h ttypes.h tv.h \
+ tvconfig.h tvobjs.h util.h validate.h views.h
+ 
+-lib_LIBRARIES = libtvision.a
+ lib_LTLIBRARIES = libtvision.la
+ libtvision_la_LDFLAGS = -version-info 0:7:0
+ 
+--- tvision-0.8/demo/Makefile.am~	Fri Nov 30 23:10:17 2001
++++ tvision-0.8/demo/Makefile.am	Fri Nov 30 23:10:17 2001
+@@ -7,7 +7,7 @@
+ ascii.h calc.h calendar.h demohelp.h fileview.h gadgets.h mousedlg.h \
+ puzzle.h tvcmds.h tvdemo.h
+ 
+-LDADD = ../lib/libtvision.a
++LDADD = ../lib/libtvision.la
+ 
+ INCLUDES = -I../lib
+ 
+--- tvision-0.8/tutorial/Makefile.am~	Fri Nov 30 23:11:10 2001
++++ tvision-0.8/tutorial/Makefile.am	Fri Nov 30 23:11:10 2001
+@@ -32,6 +32,6 @@
+ tvlife_SOURCES = tvlife.cc
+ validator_SOURCES = validator.cc
+ 
+-LDADD = ../lib/libtvision.a
++LDADD = ../lib/libtvision.la
+ 
+ INCLUDES = -I../lib
