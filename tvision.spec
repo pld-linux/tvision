@@ -2,7 +2,7 @@ Summary:	Unix port of Borland TurboVision library
 Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
 Version:	0.8
-Release:	2
+Release:	3
 License:	Borland, some modifications are BSD-style licensed (generally free)
 Group:		Libraries
 Group(de):	Libraries
@@ -14,6 +14,8 @@ Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-am_fixes.patch
+Patch2:		%{name}-endian.h.patch
 BuildRequires:	gcc-c++
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel
@@ -77,10 +79,12 @@ Biblioteki statyczne tvision.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
-CXXFLAGS="-I%{_includedir}/ncurses -fno-exceptions -fno-rtti"
+CXXFLAGS="-I%{_includedir}/ncurses -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure
 
 sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/puzzle.cc.$$ demo/puzzle.cc
