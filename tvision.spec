@@ -2,13 +2,14 @@ Summary:	Unix port of Borland TurboVision library
 Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
 Version:	0.8
-Release:	3
+Release:	4
 License:	Borland, some modifications are BSD-like licensed (generally free)
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fixes.patch
 Patch2:		%{name}-endian.h.patch
+URL:		http://www.sigala.it/sergio/tvision/
 BuildRequires:	gcc-c++
 BuildRequires:	gpm-devel
 BuildRequires:	ncurses-devel
@@ -97,8 +98,6 @@ EOF
 
 cp -ar demo tutorial $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
-gzip -9nf ChangeLog README TODO Announce COPYRIGHT
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -112,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc *.gz
+%doc doc ChangeLog README TODO Announce COPYRIGHT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_infodir}/*
 
