@@ -11,8 +11,18 @@ Patch:		%{name}-info.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Turbo Vision (or TV, for short) is a library that provides an application
+framework.  With TV you can write a beautiful object-oriented character-mode
+user interface in a short time.
+
+TV is available in C++ and Pascal and is a product of Borland International.
+It was developed to run on MS-DOS systems, but today it is available for many
+other platforms (ported by independent programmers).
+
+This port is based on the Borland 2.0 version with fixes.
 
 %description -l pl
+Unixowa wersja biblioteki TurboVision Borlanda
 
 %package devel
 Summary:	%{name} header files
@@ -50,6 +60,8 @@ Biblioteki statyczne %{name}.
 %build
 CPPFLAGS="-I%{_includedir}/ncurses/"; export CPPFLAGS
 %configure
+
+sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/puzzle.cc.$$ demo/puzzle.cc
 %{__make}
 
 %install
