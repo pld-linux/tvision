@@ -1,8 +1,8 @@
 Summary:	Unix port of Borland TurboVision library
 Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
-Version:	0.7
-Release:	3
+Version:	0.8
+Release:	1
 License:	Borland, some modifications are BSD-style licensed (generally free)
 Group:		Libraries
 Group(de):	Libraries
@@ -48,10 +48,10 @@ Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
-%{name} header files.
+tvision header files.
 
 %description -l pl devel
-Pliki nagЁСwkowe %{name}.
+Pliki nagЁСwkowe tvision.
 
 %package static
 Summary:	Static %{name} libraries
@@ -67,17 +67,17 @@ Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static %{name} libraries.
+Static tvision libraries.
 
 %description -l pl static
-Biblioteki statyczne %{name}.
+Biblioteki statyczne tvision.
 
 %prep
 %setup -q
 %patch -p1
 
 %build
-CPPFLAGS="-I%{_includedir}/ncurses/"; export CPPFLAGS
+CXXFLAGS="-I%{_includedir}/ncurses -fno-exceptions -fno-rtti"
 %configure
 
 sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/puzzle.cc.$$ demo/puzzle.cc
@@ -86,7 +86,6 @@ sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_infodir}
-install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/{demo,tutorial}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -98,9 +97,6 @@ install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 rm -f demo/Makefile*
 rm -f tutorial/Makefile*
 rm -f doc/{*.info,*.texi,*.tex,*.sed,*.kdoc,Makefile*}
-
-mv -f demo/demo			$RPM_BUILD_ROOT%{_libdir}/%{name}/demo
-mv -f tutorial/tvguid[0-9][0-9]	$RPM_BUILD_ROOT%{_libdir}/%{name}/tutorial
 
 # let's create simple Makefile ("\$" to prevent from macro expansion)
 cat >tutorial/Makefile  <<EOF
@@ -130,7 +126,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc demo tutorial ChangeLog.gz README.gz TODO.gz Announce.gz COPYRIGHT.gz
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/%{name}
 %{_infodir}/*
 
 %files devel
