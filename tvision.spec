@@ -36,10 +36,10 @@ obiektow± bibliotek± do okienkowych interfejsów u¿ytkownika w trybie
 tekstowym.
 
 %package devel
-Summary:	%{name} header files
-Summary(pl):	Pliki nag³ówkowe %{name}
+Summary:	tvision header files
+Summary(pl):	Pliki nag³ówkowe tvision
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 tvision header files.
@@ -48,10 +48,10 @@ tvision header files.
 Pliki nag³ówkowe tvision.
 
 %package static
-Summary:	Static %{name} libraries
-Summary(pl):	Biblioteki statyczne %{name}
+Summary:	Static tvision libraries
+Summary(pl):	Biblioteki statyczne tvision
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static tvision libraries.
