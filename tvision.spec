@@ -120,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/*
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_examplesdir}/%{name}
 
 %files static
