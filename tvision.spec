@@ -81,19 +81,19 @@ install -d $RPM_BUILD_ROOT{%{_infodir},%{_examplesdir}/%{name}}
 install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 
 # some cleaning
-%{__make} -C tutorial mostlyclean
-%{__make} -C demo     mostlyclean
+%{__make} -C tutorial	mostlyclean
+%{__make} -C demo	mostlyclean
 rm -f demo/Makefile*
 rm -f tutorial/Makefile*
 rm -f doc/{*.info,*.texi,*.tex,*.sed,*.kdoc,Makefile*}
 
 # let's create simple Makefile ("\$" to prevent from macro expansion)
-cat >tutorial/Makefile  <<EOF
+cat >tutorial/Makefile <<EOF
 CPPFLAGS = -g
 LDFLAGS = -lncurses -lgpm -ltvision
 
 SOURCES := \$(wildcard *.cc)
-PROGS   := \$(patsubst %.cc,%,\$(SOURCES))
+PROGS	:= \$(patsubst %.cc,%,\$(SOURCES))
 
 all: \$(PROGS)
 EOF
