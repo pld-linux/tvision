@@ -14,6 +14,7 @@ URL:		http://www.sigala.it/sergio/tvision/
 BuildRequires:	gpm-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
