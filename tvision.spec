@@ -3,7 +3,7 @@ Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
 Version:	0.8
 Release:	3
-License:	Borland, some modifications are BSD-style licensed (generally free)
+License:	Borland, some modifications are BSD-like licensed (generally free)
 Group:		Libraries
 Source0:	ftp://sunsite.unc.edu/pub/Linux/devel/lang/c++/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
