@@ -1,0 +1,11 @@
+--- tvision-0.7/doc/tvision.texi	Wed Feb 10 22:11:30 1999
++++ tvision.texi	Sat Apr 22 15:02:02 2000
+@@ -1,7 +1,7 @@
+ \input texinfo   @c -*-texinfo-*-
+ @setfilename tvision.info
+ @settitle TVision Library
+-@dircategory Programming tools
++@dircategory Libraries:
+ @direntry
+ * TVision: (tvision).                   The TVision CUI library.
+ @end direntry
