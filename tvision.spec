@@ -13,7 +13,6 @@ Prereq:		%{_sbindir}/fix-info-dir
 
 %description
 
-
 %description -l pl
 
 %package devel
