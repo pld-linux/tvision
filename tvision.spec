@@ -58,14 +58,14 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_infodir}
 install -d $RPM_BUILD_ROOT%{_libdir}/%{name}/{demo,tutorial}
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 install doc/tvision.info $RPM_BUILD_ROOT%{_infodir}
 
 # some cleaning
-make -C tutorial mostlyclean
-make -C demo     mostlyclean
+%{__make} -C tutorial mostlyclean
+%{__make} -C demo     mostlyclean
 rm demo/Makefile*
 rm tutorial/Makefile*
 rm doc/{*.info,*.texi,*.tex,*.sed,*.kdoc,Makefile*}
