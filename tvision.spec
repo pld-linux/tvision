@@ -66,7 +66,7 @@ Biblioteki statyczne tvision.
 %patch2 -p1
 
 %build
-CXXFLAGS="-I%{_includedir}/ncurses -fno-exceptions -fno-rtti -fno-implicit-templates"
+CXXFLAGS="-I/usr/include/ncurses -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure
 
 sed 's|<sys/time.h>|<time.h>|' demo/puzzle.cc > demo/puzzle.cc.$$ && mv -f demo/puzzle.cc.$$ demo/puzzle.cc
