@@ -99,7 +99,7 @@ PROGS	:= \$(patsubst %.cc,%,\$(SOURCES))
 all: \$(PROGS)
 EOF
 
-cp -ar demo tutorial $RPM_BUILD_ROOT%{_examplesdir}/%{name}
+cp -a demo tutorial $RPM_BUILD_ROOT%{_examplesdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
