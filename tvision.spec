@@ -1,5 +1,5 @@
 Summary:	Unix port of Borland TurboVision library
-Summary(pl):	Uniksowa wersja biblioteki TurboVision Borlanda
+Summary(pl.UTF-8):   Uniksowa wersja biblioteki TurboVision Borlanda
 Name:		tvision
 Version:	0.8
 Release:	4
@@ -30,33 +30,33 @@ programmers).
 
 This port is based on the Borland 2.0 version with fixes.
 
-%description -l pl
+%description -l pl.UTF-8
 Uniksowa wersja biblioteki TurboVision 2.0 Borlanda. TurboVision jest
-obiektow± bibliotek± do okienkowych interfejsÛw uøytkownika w trybie
+obiektowƒÖ bibliotekƒÖ do okienkowych interfejs√≥w u≈ºytkownika w trybie
 tekstowym.
 
 %package devel
 Summary:	tvision header files
-Summary(pl):	Pliki nag≥Ûwkowe tvision
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe tvision
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 tvision header files.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe tvision.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe tvision.
 
 %package static
 Summary:	Static tvision libraries
-Summary(pl):	Biblioteki statyczne tvision
+Summary(pl.UTF-8):   Biblioteki statyczne tvision
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static tvision libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne tvision.
 
 %prep
